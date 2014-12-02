@@ -23,5 +23,4 @@ trait ResourceComponent extends Profile {
 
     def forInsert = first ~ last  <> ({ t => Resource(None, t._1, t._2)}, { (r: Resource) => Some ((r.first, r.last))})
   }
-
 }
