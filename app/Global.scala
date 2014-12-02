@@ -1,4 +1,4 @@
-import models.Resource
+import models.{Player, Resource}
 import play.api.{Logger, GlobalSettings, Application}
 import play.api.db.slick.Config.driver.simple._
 import repositories.AppDB._
@@ -14,13 +14,13 @@ object Global extends GlobalSettings {
   object InitialData {
 
     def insert() = {
-      val dal = getDal
 
-      getDb.withSession {
+      db.withSession {
         implicit session:Session =>
-          dal.create
+          dao.create
           //Query(Resource)
-          val resourceOneId = dal.resources.forInsert returning dal.resources.id insert(Resource(None, "Great", "Engineer"))
+          val resourceOneId = dao.resources.forInsert returning dao.resources.id insert(Resource(None, "Great", "Engineer"))
+          dao.players.insert(Player(2,"simon"))
           Logger.info(s"$resourceOneId")
       }
     }

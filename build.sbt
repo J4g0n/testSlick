@@ -15,7 +15,10 @@ libraryDependencies ++= Seq(
   javaCore,  // The core Java API
   // WebJars pull in client-side web libraries
   "org.webjars" %% "webjars-play" % "2.2.0",
-  "org.webjars" % "bootstrap" % "2.3.1"
+  "org.webjars" % "bootstrap" % "2.3.1",
+  "mysql" % "mysql-connector-java" % "5.1.25",
+  "net.databinder.dispatch" %% "dispatch-core" % "0.11.2",
+  "io.spray" %%  "spray-json" % "1.3.1"
   // Add your own project dependencies in the form:
   // "group" % "artifact" % "version"
 )

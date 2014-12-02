@@ -19,7 +19,7 @@ trait ResourceComponent extends Profile {
     def first = column[String]("FIRST")
     def last = column[String]("LAST")
 
-    def * = id.? ~ first ~ last <>(Resource, Resource.unapply _)
+    def * = id.? ~ first ~ last <> (Resource, Resource.unapply _)
 
     def forInsert = first ~ last  <> ({ t => Resource(None, t._1, t._2)}, { (r: Resource) => Some ((r.first, r.last))})
   }
