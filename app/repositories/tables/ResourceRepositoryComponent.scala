@@ -2,19 +2,20 @@ package repositories.tables
 
 import models.Resource
 import play.api.db.slick.Profile
+import repositories.ResourceRepository
 
 
 /**
  * Created by sandman on 12/1/14.
  */
-trait ResourceComponent extends Profile {
+trait ResourceRepositoryComponent extends Profile {
   this: Profile =>
 
   val resources = new Resources
 
   import profile.simple._
 
-  class Resources extends Table[Resource]("RESOURCES") {
+  class Resources extends Table[Resource]("RESOURCES") with ResourceRepository {
     def id = column[Int]("ID", O.PrimaryKey, O.AutoInc)
     def first = column[String]("FIRST")
     def last = column[String]("LAST")

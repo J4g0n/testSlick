@@ -1,4 +1,4 @@
-package repositories
+package mySql
 
 import play.api.db.slick.DB
 
